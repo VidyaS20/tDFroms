@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="text-center">
+    Contact Us page
+  </h2>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-left bg-white rounded shadow py-3">
+
+      <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+        <div class="form-group mt-2 mb-3">
+          <label for="username">User Name*</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter User Name.." name="username" ngModel required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="email">Email*</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter Email.." name="email" ngModel required email #email="ngModel">
+          <small class="text-danger" *ngIf="!email.valid && email.touched">Please Enter Valid Email</small>
+        </div>
+        <div class="form-group mb-3">
+          <label for="course">Select Course</label>
+          <select class="form-select" aria-label="Default select example" name="course" ngModel>
+            <option selected>Open this select menu</option>
+            <option value="1">HTML</option>
+            <option value="2">Css</option>
+            <option value="3">Angular</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input class="form-check-input" type="radio" name="gender" id="gender">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Default radio
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!myForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
